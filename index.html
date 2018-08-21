@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat Raid</title>
+    <!-- <link rel="stylesheet" href="/static/style.css"> -->
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        form {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            border: 2px solid black;
+        }
+
+        form input {
+            border: 0;
+            padding: 11px;
+            float: left;
+            width: 90%;
+        }
+
+        form button {
+            background: #eee;
+            padding: 10px 20px;
+            float: right;
+        }
+
+        #messages {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #messages li {
+            padding: 5px 10px;
+            font-size: 40px;
+            margin: 0 20px;
+            scroll-behavior: auto;
+            overflow: auto;
+        }
+
+        #messages li:nth-child(odd) {
+            background: #eee;
+            text-align: right;
+            margin: 0 0 0 auto;
+            padding-right: 20px;
+            scroll-behavior: auto;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Chat Room</h1>
+
+    <ul id="messages">
+        <!-- where the new messages will go as new list items -->
+    </ul>
+
+    <form>
+        <input id="formInput" autocomplete="off" placeholder="Type a message..." />
+        <button>Send</button>
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
+
+    <script>
+        $(function () {
+            var socket = io();
+
+            $('form').submit(function () {
+                socket.emit('chat message', $('#formInput').val());
+                $('#formInput').val('');
+                return false;
+            });
+
+            socket.on('chat message', function (msg) {
+                $('#messages').append($('<li>').text(msg));
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
