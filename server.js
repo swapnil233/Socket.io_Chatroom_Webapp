@@ -13,8 +13,10 @@ app.get('/', function (req, res) {
 
 // when connected
 io.on('connection', function (socket) {
+    
     connectedCounter = connectedCounter + 1;
     console.log("a user connected");
+
     console.log("connected users: " + connectedCounter);
 
     // when a user is connected, get the "chat message" emit from index.html (its the value of the input in the form) and spit the msg
@@ -30,7 +32,7 @@ io.on('connection', function (socket) {
     })
 });
 
-// where the server starts
+// where the server deploys
 http.listen(3000, function () {
     console.log('Server started');
 });

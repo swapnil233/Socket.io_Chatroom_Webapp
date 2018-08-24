@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chat Raid</title>
-    <!-- <link rel="stylesheet" href="/static/style.css"> -->
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
@@ -48,8 +47,9 @@
 
         #messages {
             list-style-type: none;
-            margin: 0;
             padding: 0;
+            width: 80%;
+            margin: 0 auto;
         }
 
         #messages li {
@@ -100,6 +100,10 @@
             socket.on('chat message', function (msg) {
                 $('#messages').append($('<li>').text(msg));
             });
+
+            socket.on('connection', function(socket) {
+                $('#messages').append($('<li>').text("a user joined"));
+            })
         });
     </script>
 
