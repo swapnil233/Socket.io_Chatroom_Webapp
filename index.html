@@ -101,8 +101,8 @@
                 $('#messages').append($('<li>').text(msg));
             });
 
-            socket.on('connection', function(socket) {
-                $('#messages').append($('<li>').text("a user joined"));
+            socket.on('connection', function(msg) {
+                $('#messages').append($('<li>').text("A user joined. User count: ") + conectedCounter());
             })
         });
     </script>

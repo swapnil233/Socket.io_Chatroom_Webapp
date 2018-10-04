@@ -33,8 +33,9 @@ io.on('connection', function (socket) {
 });
 
 // where the server deploys
-http.listen(3000, function () {
-    console.log('Server started');
+localHostPort = 3000;
+http.listen(localHostPort, function () {
+    console.log('Server started on localhost:' + localHostPort);
 });
 
 // ---------- Lead tester: ---------- //
