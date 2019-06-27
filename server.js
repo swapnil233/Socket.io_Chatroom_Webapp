@@ -33,7 +33,7 @@ io.on('connection', function (socket) {
 });
 
 // where the server deploys
-localHostPort = 3000;
+localHostPort = 5500;
 http.listen(localHostPort, function () {
     console.log('Server started on localhost:' + localHostPort);
 });
