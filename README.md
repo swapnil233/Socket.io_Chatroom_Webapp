@@ -29,7 +29,7 @@ git clone https://github.com/swapnil233/Socket.io_chat_webapp.git
 
 ##### 2. cd into the folder, open `index.html` and `server.js` 
 
-##### 3. Install the dependencies
+##### 3. Install the dependencies (Express & Socket.io)
 ```
 npm install
 ```
