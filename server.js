@@ -37,6 +37,3 @@ localHostPort = 5500;
 http.listen(localHostPort, function () {
     console.log('Server started on localhost:' + localHostPort);
 });
-
-// ---------- Lead tester: ---------- //
-// Nadir El Tahir
