@@ -3,21 +3,10 @@
 This web app project uses **socket.io**, node.js and ngrok to host a server on your localhost that gives you and whoever else has the URL the ability to chat with each other.
 
 ## Prerequisites
-##### 1. Node.js
-```bash
-https://nodejs.org/en/download/
-```
-
 ##### 2. Ngrok
 ```bash
 https://ngrok.com/download
 ```
-
-##### 3. Git Bash
-```bash
-https://git-scm.com/downloads
-```
-
 
 ## Installation
 
